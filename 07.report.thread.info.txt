@@ -1,0 +1,16 @@
+Show number of threads for process firefox or google-chrome, choose one of two ways
+-Step 1: 
++In put: ps -e | grep firefox
++Out put:
+11861 tty2     00:00:36 firefox
+-Step 2: 
++In put: ps -o nlwp
++Out put: 
+NLWP
+  79
+-Step 2:
++In put: ps -o nlwp 11861
++Out put: 
+NLWP
+  79
+

@@ -1,0 +1,19 @@
+List all files in current directory containing «list» in their names (filter with grep)
+-In put: ls | grep list
+-Out put: There is no output because thedirectory is empty
+Count how many lines that /etc/passwd has (use wc)
+-In put: wc -l /etc/passwd
+-Out put: 
+42 /etc/passwd
+Check how much memory that your machine has, not free memory (use free)
+-In put: free -h | head -2
+-Out put: 
+   total        used        free      shared  buff/cache   available
+Mem:           3,4G        1,6G        1,0G        172M        750M        1,3G
+Find how many logical core that your CPU has (see /proc/cpuinfo)
+-In put: cat /proc/cpuinfo | grep 'cpu cores' | head -1
+-Out put: 
+cpu cores	: 4
+Count how many .jpg files that you have in your photo directory (use find)
+-In put: find *.jpg | wc -l
+-Out put: 0

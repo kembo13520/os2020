@@ -1,0 +1,35 @@
+Show number of context switches for process systemd using two files (two different sets of commands)
+1. Using /proc/sched_debug.
++In put: cat /proc/sched_debug | grep -e systemd | awk '{print $5}'
++Out put:
+886
+13994
+551041
+120
+119
+120
+110
+261
+2. Using /proc/<processId>/sched.
+-Step 1:
++In put: ps -e | grep systemd
++Out put: 
+1    ?        00:00:41 systemd
+1144 ?        00:00:00 systemd
+1747 ?        00:00:00 systemd
+-Step 2:
++In put: cat /proc/1/sched | grep switch
++Out put: 
+nr_switches                                  :               560837
+nr_voluntary_switches                        :               560334
+nr_involuntary_switches                      :                  503
++In put: cat /proc/1144/sched | grep switch
++Out put:
+nr_switches                                  :                  110
+nr_voluntary_switches                        :                   91
+nr_involuntary_switches                      :                   19
++In put: cat /proc/1747/sched | grep switch
++Out put: 
+nr_switches                                  :                  261
+nr_voluntary_switches                        :                  238
+nr_involuntary_switches                      :                   23
